@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Matcha Coffee Shop | by Danica Godoy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #2c3e2f;
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #1f3620;
+        }
+
+        /* =========================
+           LANDING PAGE
+        ========================= */
+
+        .landing-page {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(31, 54, 32, 0.6),
+                rgba(31, 54, 32, 0.6)),
+                url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85')
+                center/cover no-repeat;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .landing-content {
+            padding: 40px 60px;
+            border: 3px solid rgba(255,255,255,0.7);
+            border-radius: 20px;
+
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .landing-content h1 {
+            font-size: 56px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .landing-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .enter-btn {
+            display: inline-block;
+            padding: 16px 45px;
+
+            background: #4a7c59;
+            color: white;
+
+            font-size: 18px;
+            font-weight: 600;
+
+            text-decoration: none;
+            border-radius: 10px;
+
+            transition: 0.3s ease;
+        }
+
+        .enter-btn:hover {
+            background: #3a6147;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 8%;
+
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+
+            color: #4a7c59;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3a5f41;
+
+            font-weight: 500;
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4a7c59;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 42px;
+
+            margin-bottom: 50px;
+            color: #1f3620;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 75vh;
+
+            background:
+                linear-gradient(rgba(31, 54, 32, 0.5),
+                rgba(31, 54, 32, 0.5)),
+                url('https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=1200&q=80')
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            border-radius: 16px;
+            margin: 20px 5%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            color: white;
+
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content span {
+            color: #a8e6a3;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 38px;
+
+            background: #4a7c59;
+            color: white;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            border: none;
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #3a6147;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #f5f8f3;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .about-container p {
+            font-size: 17px;
+            color: #526654;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            background: white;
+        }
+
+        .menu-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .menu-card {
+            background: #f7faf5;
+
+            border-radius: 15px;
+            overflow: hidden;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            transition: 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 220px;
+
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .menu-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .menu-info p {
+            color: #68776a;
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+
+            color: #4a7c59;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #edf4ea;
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+            color: #526654;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #1f3620;
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .landing-content {
+                width: 90%;
+                padding: 30px 20px;
+            }
+
+            .landing-content h1 {
+                font-size: 40px;
+            }
+
+            .landing-content p {
+                font-size: 16px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 70vh;
+                margin: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            section h2 {
+                font-size: 34px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         LANDING PAGE
+    ========================= -->
+
+    <div class="landing-page" id="home">
+
+        <div class="landing-content">
+
+            <h1>Matcha Coffee</h1>
+
+            <p>
+                A cozy place where matcha meets coffee.
+            </p>
+
+            <a href="#main" class="enter-btn">
+                Enter Shop
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            Matcha Coffee
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#main">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#menu">Menu</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main id="main">
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <h1>
+                    Sip Something
+                    <span>Beautiful.</span>
+                </h1>
+
+                <p>
+                    Discover handcrafted matcha and coffee drinks
+                    made with love and carefully selected ingredients.
+                </p>
+
+                <a href="#menu" class="btn">
+                    View Our Menu
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             ABOUT
+        ========================= -->
+
+        <section class="about" id="about">
+
+            <h2>About Us</h2>
+
+            <div class="about-container">
+
+                <p>
+                    Welcome to Matcha Coffee, a cozy little café
+                    dedicated to bringing together the smooth taste
+                    of premium matcha and the rich flavor of coffee.
+                </p>
+
+                <p>
+                    Whether you're looking for a refreshing matcha drink,
+                    a comforting cup of coffee, or simply a peaceful
+                    place to relax, we're happy to have you here.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MENU
+        ========================= -->
+
+        <section class="menu" id="menu">
+
+            <h2>Our Menu</h2>
+
+            <div class="menu-grid">
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80"
+                        alt="Matcha Latte"
+                    >
+
+                    <div class="menu-info">
+
+                        <h3>Matcha Latte</h3>
+
+                        <p>
+                            Creamy premium matcha blended
+                            with smooth milk.
+                        </p>
+
+                        <div class="price">
+                            ₱120
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                        alt="Iced Coffee"
+                    >
+
+                    <div class="menu-info">
+
+                        <h3>Iced Coffee</h3>
+
+                        <p>
+                            Smooth and refreshing coffee
+                            served over ice.
+                        </p>
+
+                        <div class="price">
+                            ₱110
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"
+                        alt="Matcha Cream"
+                    >
+
+                    <div class="menu-info">
+
+                        <h3>Matcha Cream</h3>
+
+                        <p>
+                            Rich matcha topped with
+                            a soft creamy foam.
+                        </p>
+
+                        <div class="price">
+                            ₱135
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section class="contact" id="contact">
+
+            <h2>Visit Us</h2>
+
+            <p>
+                Come relax, sip, and enjoy your favorite drink.
+            </p>
+
+            <p>
+                📍 Your Favorite Café
+            </p>
+
+            <p>
+                📞 0912-345-6789
+            </p>
+
+            <p>
+                ✉️ matchacoffee@danicagodoy95@gmail.com
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Matcha Coffee Shop | Designed by Danica Godoy
+        </p>
+
+    </footer>
+
+</body>
+</html>
